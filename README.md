@@ -1,5 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/4ZXnqbvS)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=19330007)
 # SESION DE LABORATORIO N° 03: PATRONES DE DISEÑO DE COMPORTAMIENTO
 
 ## OBJETIVOS
@@ -45,7 +43,18 @@ dotnet new nunit -o Payment.Domain.Tests
 dotnet sln add ./Payment.Domain.Tests/Payment.Domain.Tests.csproj
 dotnet add ./Payment.Domain.Tests/Payment.Domain.Tests.csproj reference ./Payment.Domain/Payment.Domain.csproj
 ```
+
+![alt text](image.png)
+
+
 5. Iniciar Visual Studio Code (VS Code) abriendo el folder de la solución como proyecto. En el proyecto Payment.Domain, si existe un archivo Class1.cs proceder a eliminarlo. Asimismo en el proyecto Payment.Domain.Tests si existiese un archivo UnitTest1.cs, también proceder a eliminarlo.
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+
+
 
 6. Primero se necesita implementar la interfaz que servirá de ESTRATEGIA base para las posibles implementaciones de pagos. Por eso en VS Code, en el proyecto Notifications.Domain proceder a crear el archivo IPaymentStrategy.cs :
 ```C#
@@ -194,6 +203,11 @@ namespace Payment.Domain.Tests
 ```Bash
 dotnet test --collect:"XPlat Code Coverage"
 ```
+
+![alt text](image-3.png)
+
+
+
 12. Si las pruebas se ejecutaron correctamente debera aparcer un resultado similar al siguiente:
 ```Bash
 Passed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 12 ms
@@ -211,8 +225,8 @@ c. Conexto: esta es la clase que mantiene la referencia al objeto Estrategia y l
 dotnet tool install --global dll2mmd
 dll2mmd -f Payment.Domain/bin/Debug/net7.0/Payment.Domain.dll -o payment.md
 ```
-
-
+![alt text](image-4.png)
+![alt text](image-5.png)
 ### PARTE II: Command Design Pattern
 
 1. Iniciar una nueva instancia de la aplicación Powershell o Windows Terminal en modo administrador 
@@ -232,7 +246,15 @@ dotnet new nunit -o ATM.Domain.Tests
 dotnet sln add ./ATM.Domain.Tests/ATM.Domain.Tests.csproj
 dotnet add ./ATM.Domain.Tests/ATM.Domain.Tests.csproj reference ./ATM.Domain/ATM.Domain.csproj
 ```
+![alt text](image-6.png)
+
+
 5. Iniciar Visual Studio Code (VS Code) abriendo el folder de la solución como proyecto. En el proyecto ATM.Domain, si existe un archivo Class1.cs proceder a eliminarlo. Asimismo en el proyecto ATM.Domain.Tests si existiese un archivo UnitTest1.cs, también proceder a eliminarlo.
+
+
+![alt text](image-7.png)
+
+![alt text](image-8.png)
 
 6. Inicialmente se necesita implementar la clase Cuenta que se utilizara en todas los comandos del ATM. Para esto crear el archivo Account.cs en el proyecto ATM.Domain con el siguiente código:
 ```C#
@@ -365,6 +387,8 @@ namespace ATM.Domain.Tests
 ```Bash
 dotnet test --collect:"XPlat Code Coverage"
 ```
+![alt text](image-9.png)
+
 11. Si las pruebas se ejecutaron correctamente debera aparcer un resultado similar al siguiente:
 ```Bash
 Correctas! - Con error:     0, Superado:     2, Omitido:     0, Total:     2, Duración: 5 ms
@@ -386,7 +410,10 @@ Client: Es la clase que crea y ejecuta el comando.
 dotnet tool install --global dll2mmd
 dll2mmd -f ATM.Domain/bin/Debug/net7.0/ATM.Domain.dll -o atm.md
 ```
+![alt text](image-10.png)
 
+
+![alt text](image-11.png)
 ---
 ## Actividades Encargadas
 1. Completar la documentación de todas las clases y generar una automatización .github/workflows/publish_docs.yml (Github Workflow) utilizando DocFx (init, metadata y build) y publicar el site de documentación generado en un Github Page.
